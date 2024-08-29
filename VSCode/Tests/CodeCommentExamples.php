@@ -61,7 +61,8 @@ $regex = "/^pattern/igmsu";
  *   Additional details here
  */
 // TODO: Multi-line Comment
-//  Additional details here
+//  Additional details here (indent with two or more leading spaces)
+//  - Additional details here (leading double space)
 // Normal colors resume when comment is not indented
 
 $obj = [
@@ -71,20 +72,22 @@ $obj = [
 ];
 /* Comment Block
  * TODO: This should be marked
- *  and this line too because it is indented (double space)
- * But not this line because it is not indented
+ *  and this line too because it is indented (indent with two or more leading spaces)
+ *  and this line too because it is indented
+ *   - This line also because we're still indented
+ * But not this line because it is not indented (single space)
  */
 
- // Other styles are also supported like:
- // <!-- TODO: HTML Style Comments -->
- // # TODO: Python/Bash Style comments
+// Other styles are also supported like:
+// <!-- TODO: HTML Style Comments -->
+// # TODO: Python/Bash Style comments
 
 
- // BUG: Single Bug Line Comment
- // DEBUG: Single Debug Line Comment
- /* Bug: Multi-line Comment (C++ Style)
-  *  Inherits the colors of the tag when indented
-  */
+// BUG: Single Bug Line Comment
+// DEBUG: Single Debug Line Comment
+/* Bug: Multi-line Comment (C++ Style)
+ *  Inherits the colors of the tag when indented
+ */
 // BUG: Multi-line Comment
 //  Inherits the colors of the tag when indented
 // Normal colors resume when comment is not indented
