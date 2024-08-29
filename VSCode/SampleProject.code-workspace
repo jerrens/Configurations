@@ -15,27 +15,12 @@
             // "**/node_modules": true, // Listed in files.exclude so no need to duplicate
             "**/*.code-search": true,
             "**.lock": true,
-            "*-lock.json": true,
-            "**/vendor/**": true, // Laravel: This cannot be within the files.exclude section.  If it is, intelephense will not be able to find the files
-            "**/public/**/filament/**/*": true // Laravel Filament
+            "*-lock.json": true            
         },
         // Control indentation size
         // "editor.tabSize": 4,
         // "editor.insertSpaces": true,
-        "editor.detectIndentation": false, // Default is true
-        "editor.quickSuggestions": {
-            // Helpful for Laravel Projects
-            "other": "on",
-            "comments": "on",
-            "strings": "on"
-        },
-        "cSpell.customDictionaries": {
-            "laravel": {
-                "name": "laravel",
-                "path": "${workspaceRoot}/.vscode/cspell/laravel.dict",
-                "description": "Words used by Laravel projects",
-                "scope": "folder"
-            }
-        }
+        "editor.detectIndentation": false, // Default is true        
+        "cSpell.customDictionaries": {}
     }
 }
