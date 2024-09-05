@@ -1,0 +1,64 @@
+// Place your key bindings in this file to override the defaults
+[
+    // Terminal Navigation
+    {
+        "key": "ctrl+shift+k",
+        "command": "workbench.action.terminal.focusNext",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+shift+j",
+        "command": "workbench.action.terminal.focusPrevious",
+        "when": "terminalFocus"
+    },
+    // Cursor Navigation: Word Parts
+    {
+        "key": "ctrl+right",
+        "command": "cursorWordPartRight",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+shift+right",
+        "command": "cursorWordPartRightSelect",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+left",
+        "command": "cursorWordPartLeft",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+shift+left",
+        "command": "cursorWordPartLeftSelect",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+backspace",
+        "command": "deleteWordPartLeft",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+delete",
+        "command": "deleteWordPartRight",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+shift+alt+f12",
+        "command": "editor.action.goToTypeDefinition",
+        "when": "editorHasDefinitionProvider && editorTextFOcus && !isInEmbeddedEditor"
+    },
+    // Sequence for opening Commit Message Editor
+    {
+        "key": "ctrl+shift+alt+c",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "workbench.action.focusLastEditorGroup", // Move to the last group
+                "workbench.action.newGroupBelow", // Create a new group
+                "commitMessageEditor.openEditor", // Open Commit Message Editor (In active group)
+                "workbench.action.lockEditorGroup", // Now lock it
+                "workbench.action.closePanel" // Make some more room
+            ]
+        }
+    }
+]

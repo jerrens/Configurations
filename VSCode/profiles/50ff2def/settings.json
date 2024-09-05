@@ -1,0 +1,299 @@
+// CSharp Profile Settings
+{
+    // ************************************************************
+    // CodeSnap Extension Configuration
+    //  Used for screenshots and may not be installed
+    // ------------------------------------------------------------
+    "codesnap.showWindowControls": false,
+    "codesnap.transparentBackground": true,
+    "codesnap.showLineNumbers": false,
+    "codesnap.containerPadding": "0em",
+    "codesnap.showWindowTitle": true,
+    // 
+    // ************************************************************
+    // Spell Checker Extension Configuration
+    // ------------------------------------------------------------
+    "cSpell.allowCompoundWords": true,
+    "cSpell.flagWords": [
+        // spell-checker:disable
+        "teh"
+        // spell-checker:enable
+    ],
+    "cSpell.ignoreRegExpList": [
+    ],
+    "cSpell.words": [
+        "drawio",
+        "jerren"
+    ],
+    //
+    // ************************************************************
+    // VS Code Editor  
+    // Causes the debug view to automatically appear when a breakpoint is hit
+    // This setting is global and not configurable per-language.
+    "debug.openDebug": "openOnDebugBreak",
+    "debug.showBreakpointsInOverviewRuler": true,
+    "debug.toolBarLocation": "commandCenter",
+    "diffEditor.ignoreTrimWhitespace": false,
+    // "editor.bracketPairColorization.enabled": true, // Colors can be customized with 'workbench.colorCustomizations'
+    "editor.fontSize": 12,
+    "editor.guides.bracketPairs": true,
+    "editor.renderControlCharacters": false,
+    "editor.renderWhitespace": "trailing",
+    // Format on Save
+    // Applies code formatters when saving to provide consistent indents, remove trailing white-space, etc.
+    "editor.formatOnSave": true, // Default: This will allow the formatter(s) to fix most issues on save so that you don't have to manually (CTRL+S)
+    // To by-pass the formatting of a file when you save it, press F1 or CTRL+SHIFT+P and select 'File: Save without Formatting' or just press (CTRL+K, CTRL+SHIFT+S)
+    "editor.formatOnSaveMode": "file",
+    // "editor.stickyScroll.enabled": true,
+    "explorer.confirmDelete": false,
+    "files.associations": {
+        ".env*": "dotenv",
+        "*.json": "jsonc", // Allow JSON files to have comments by default (otherwise it causes a warning)
+        "*.schema": "jsonc"
+    },
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 30000,
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "git.mergeEditor": true,
+    "git.openRepositoryInParentFolders": "always",
+    // 
+    // ************************************************************
+    // GitLens Extension Configuration
+    // ------------------------------------------------------------
+    "gitlens.currentLine.enabled": false,
+    "gitlens.codeLens.enabled": false,
+    "gitlens.gitCommands.skipConfirmations": [
+        "fetch:command",
+        "stash-push:command",
+        "switch:command",
+        "branch-create:command"
+    ],
+    "gitlens.hovers.currentLine.over": "line",
+    "hediet.vscode-drawio.resizeImages": null,
+    "hediet.vscode-drawio.theme": "Kennedy",
+    "npm.keybindingsChangedWarningShown": true,
+    //
+    // ************************************************************
+    // Terminal Configuration
+    "terminal.integrated.cursorStyle": "underline",
+    "terminal.integrated.defaultProfile.windows": "Command Prompt",
+    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.profiles.windows": {
+        "Command Prompt": {
+            "path": [
+                "${env:windir}\\Sysnative\\cmd.exe",
+                "${env:windir}\\System32\\cmd.exe"
+            ],
+            "args": [],
+            "icon": "terminal-cmd",
+            "color": "terminal.ansiGreen"
+        },
+        "Git Bash": {
+            "source": "Git Bash"
+        },
+        "PowerShell": {
+            "source": "PowerShell",
+            "icon": "terminal-powershell"
+        }
+    },
+    "terminal.integrated.scrollback": 10000,
+    /**************************************
+    * REGION: ToDo-Tree Extension
+    **************************************/
+    "todo-tree.general.debug": false,
+    "todo-tree.regex.enableMultiLine": false,
+    "todo-tree.regex.regex": "(?://|#|<!--|;[^\\r\\n]{1,2}|/\\*|\\*)+\\s*(?:-|\\d+.)*\\s*($TAGS)\\b:?(.*[\\r\\n]{1,2}\\s*(?://|/\\*|\\*)\\s{2,}.*)*(?:\\s*(?:\\*/))?",
+    "todo-tree.regex.subTagRegex": "^\\.?(\\.?(\\w+))?:\\s+",
+    "todo-tree.regex.regexCaseSensitive": false,
+    "todo-tree.highlights.enabled": true, // Enable so that we get the icon and other features
+    "todo-tree.tree.showCountsInTree": true, // Show how many comments are present in the group or file
+    "todo-tree.tree.disableCompactFolders": false, // This will get rid of the trailing folder paths, but then there is more to expand
+    "todo-tree.tree.labelFormat": "${afterOrBefore}", // Default to get the text after the tag, if not present use the text before the tag
+    "todo-tree.tree.buttons.export": true, // Give an option to export the items to a file
+    "todo-tree.tree.scanMode": "workspace",
+    "todo-tree.general.tags": [
+        "BUG",
+        "DEBUG",
+        "ENDREGION",
+        "END REGION",
+        "FIX",
+        "FIXME",
+        "HACK",
+        "IDEA",
+        "NOTE",
+        "OPTIMIZE",
+        "REGION",
+        "#REGION",
+        "REVIEW",
+        "TODO",
+        "UGLY"
+        // "[ ]",
+        // "[x]"
+    ],
+    "todo-tree.general.tagGroups": {
+        "DEBUG": [
+            "BUG",
+            "DEBUG"
+        ],
+        "FIXME": [
+            "FIXME",
+            "FIX"
+        ],
+        "REVIEW": [
+            "REVIEW",
+            "OPTIMIZE",
+            "UGLY"
+        ],
+        "REGION": [
+            "REGION",
+            "#REGION"
+        ],
+        "END REGION": [
+            "END REGION",
+            "#ENDREGION"
+        ]
+    },
+    "todo-tree.filtering.excludeGlobs": [
+        "**/*.code-workspace",
+        "**/settings.json"
+    ],
+    "todo-tree.highlights.defaultHighlight": {
+        "type": "text-and-comment",
+        "background": "#00000000", // Hide the background (alpha = 0)
+        "gutterIcon": true // Default to show the gutter icon unless specifically turned off        
+    },
+    // Icon name from https://primer.style/octicons/
+    "todo-tree.highlights.customHighlight": {
+        "DEBUG": {
+            "icon": "bug",
+            "iconColour": "#ff4040", // Red
+            "foreground": "#ff4040"
+        },
+        "FIXME": {
+            "icon": "flame",
+            "iconColour": "#ff8000", // Orange
+            "foreground": "#ff8000"
+        },
+        "HACK": {
+            "icon": "zap", // Alternates: tools, squirrel, cpu
+            "iconColour": "#9933ff", // Purple
+            "foreground": "#9933ff"
+        },
+        "IDEA": {
+            "icon": "light-bulb",
+            "iconColour": "#bbbb22", // Yellow
+            "foreground": "#bbbb22"
+        },
+        "NOTE": {
+            "icon": "pencil",
+            "iconColour": "#ff00ff", // Indigo
+            "foreground": "#ff00ff",
+            "hideFromTree": true, // NOTEs don't need to be included in the tree
+            "gutterIcon": false // No need to see note comments in the gutter
+        },
+        "REGION": {
+            "icon": "fold-down",
+            "iconColour": "#006600", // Dark Green
+            "foreground": "#006600",
+            "hideFromTree": true // REGIONs don't need to be included in the tree
+        },
+        "END REGION": {
+            "icon": "fold-up",
+            "iconColour": "#006600", // Dark Green
+            "foreground": "#006600",
+            "hideFromTree": true // REGIONs don't need to be included in the tree
+        },
+        "REVIEW": {
+            "icon": "eye",
+            "iconColour": "#00ccff", // Aqua
+            "foreground": "#00ccff"
+        },
+        "TODO": {
+            "icon": "check-circle",
+            "iconColour": "#009900", // Green
+            "foreground": "#009900"
+        }
+        // "[ ]": {
+        //     "icon": "issue-draft"
+        // },
+        // "[x]": {
+        //     "icon": "issue-closed"
+        // }
+    },
+    // END REGION: Extension Settings: ToDo-Tree
+    // "window.commandCenter": true,
+    "workbench.editor.doubleClickTabToToggleEditorGroupSizes": "maximize",
+    "workbench.editor.highlightModifiedTabs": true, // Highlight active tab
+    "workbench.editor.openSideBySideDirection": "down",
+    "workbench.editorAssociations": {
+        "*.html": "default"
+    },
+    "workbench.externalBrowser": "chrome",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.sideBar.location": "right",
+    "workbench.startupEditor": "none",
+    "workbench.tree.indent": 16,
+    // 
+    // ************************************************************    
+    // Customizations depending on the 'Language' of the file
+    // spell-checker:ignore esbenp
+    "[css]": {
+        "editor.defaultFormatter": "vscode.css-language-features"
+    },
+    "[dart]": {
+        // Automatically format code on save and during typing of certain characters
+        // (like `;` and `}`).
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        // Draw a guide line at 80 characters, where Dart's formatting will wrap code.
+        "editor.rulers": [
+            80
+        ],
+        // Disables built-in highlighting of words that match your selection. Without
+        // this, all instances of the selected text will be highlighted, interfering
+        // with Dart's ability to highlight only exact references to the selected variable.
+        "editor.selectionHighlight": false,
+        // By default, VS Code prevents code completion from popping open when in
+        // "snippet mode" (editing placeholders in inserted code). Setting this option
+        // to `false` stops that and allows completion to open as normal, as if you
+        // weren't in a snippet placeholder.
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+        // By default, VS Code will pre-select the most recently used item from code
+        // completion. This is usually not the most relevant item.
+        //
+        // "first" will always select top item
+        // "recentlyUsedByPrefix" will filter the recently used items based on the
+        //     text immediately preceding where completion was invoked.
+        "editor.suggestSelection": "first",
+        // Allows pressing <TAB> to complete snippets such as `for` even when the
+        // completion list is not visible.
+        "editor.tabCompletion": "onlySnippets",
+        // By default, VS Code will populate code completion with words found in the
+        // current file when a language service does not provide its own completions.
+        // This results in code completion suggesting words when editing comments and
+        // strings. This setting will prevent that.
+        "editor.wordBasedSuggestions": "off"
+    },
+    "[html]": {
+        // "editor.defaultFormatter": "vscode.html-language-features"
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[jsonc]": { // JSON with comments
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[scss]": {
+        "editor.defaultFormatter": "vscode.css-language-features"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "DavidAnson.vscode-markdownlint" // spell-checker:disable-line
+    },
+    "[python]": {
+        "editor.formatOnType": true
+    }
+    // End: Customizations depending on the 'Language' of the file
+    // ************************************************************
+}
