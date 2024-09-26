@@ -124,7 +124,7 @@
     **************************************/
     "todo-tree.general.debug": false,
     "todo-tree.regex.enableMultiLine": false,
-    "todo-tree.regex.regex": "(?://|#|<!--|;[^\\r\\n]{1,2}|/\\*|\\*)+\\s*(?:-|\\d+.)*\\s*($TAGS)\\b:?(.*[\\r\\n]{1,2}\\s*(?://|/\\*|\\*)\\s{2,}.*)*(?:\\s*(?:\\*/))?",
+    "todo-tree.regex.regex": "(?://|#|<!--|;[^\\r\\n]{1,2}|/\\*|\\*)+\\s*(?:-|\\d+.)*\\s*($TAGS)\\b:?(.*[\\r\\n]{1,2}\\s*(?:#|//|/\\*|\\*)\\s{2,}.*)*(?:\\s*(?:\\*/))?",
     "todo-tree.regex.subTagRegex": "^\\.?(\\.?(\\w+))?:\\s+",
     "todo-tree.regex.regexCaseSensitive": false,
     "todo-tree.highlights.enabled": true, // Enable so that we get the icon and other features
@@ -316,8 +316,10 @@
         "editor.defaultFormatter": "DavidAnson.vscode-markdownlint" // spell-checker:disable-line
     },
     "[python]": {
-        "editor.formatOnType": true
-    }
+        "editor.formatOnSave": false,
+        "editor.formatOnType": true,
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
     // End: Customizations depending on the 'Language' of the file
     // ************************************************************
 }

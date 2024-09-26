@@ -29,3 +29,7 @@ export PS4='           \[\e[0;32m\]+\[\e[m\]  '
 # Other available prompt codes
 # \t - Current time in HH:MM:SS (24h format)
 # \A - Current time in HH:MM (24h format)
+
+
+# Aliases
+alias ll='ls -lhA --color=auto' 2>/dev/null
