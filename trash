@@ -7,6 +7,10 @@
 #   not already there.
 #
 
+# Test with the command
+#  touch test.txt && trash test.txt && ll ~/.recycle-bin/
+
+# IDEA: Support arguments to list contents of the recycle bin
 
 if [ -z "$XDG_DATA_HOME" ] ; then
     xdg_trash_directory=$(realpath ~/.local/share/Trash/)
@@ -41,8 +45,9 @@ else
     fi
 fi
 
-# Deal with all filenames (a concept that covers names of both files and
-# directories) given as arguments.
+cmd_time="$(date '+%Y%m%d-%H%M%S.%3N')"
+
+# Deal with all filenames (a concept that covers names of both files and directories) given as arguments.
 for file in "$@" ; do
     file_to_be_trashed=$(realpath -- "${file}")
     file_basename=$(basename -- "${file_to_be_trashed}")
@@ -68,15 +73,15 @@ for file in "$@" ; do
 
             # Move the file to the custom trash directory, with a new name that
             # appends a millisecond-resolution timestamp to the original.
-            head="${trash_directory}/${file_basename}"_TRASHED_ON_
+            head="${trash_directory}/${file_basename}"___TRASHED_ON__
 
             # TODO: Change the timestamp to be more compact: '+%Y%m%d-%H%M%S.%3N'
-            move_file_to="${head}$(date '+%Y-%m-%d_AT_%H-%M-%S.%3N')"
+            move_file_to="${head}${cmd_time}"
             while [[ -e "${move_file_to}" ]] ; do
                 # Generate a new name with a new timestamp, as the previously
                 # generated one denoted an existing file or directory. It's very
                 # unlikely that this loop needs to be executed even once.
-                move_file_to="${head}$(date '+%Y-%m-%d_AT_%H-%M-%S.%3N')"
+                move_file_to="${head}${cmd_time}"
             done
 
             # There is no file or directory named ${move_file_to}, so
