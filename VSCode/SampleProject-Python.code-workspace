@@ -1,0 +1,78 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.exclude": {
+			"**/.git": true,
+			"**/.DS_Store": true,
+			"**/Thumbs.db": true,
+			"**/node_modules*/**": true, // Ignore node_modules and copies
+		},
+		"search.exclude": {
+			// "**/node_modules": true, // Listed in files.exclude so no need to duplicate
+			"**/*.code-search": true,
+			"**.lock": true,
+			"*-lock.json": true
+		},
+		// Control indentation size
+		// "editor.tabSize": 4,
+		// "editor.insertSpaces": true,
+		"editor.detectIndentation": false, // Default is true        
+		"cSpell.customDictionaries": {}
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "Python: Flask",
+				"type": "debugpy",
+				"request": "launch",
+				"module": "flask",
+				"console": "integratedTerminal",
+				"justMyCode": false,
+				"preLaunchTask": "activate_venv",
+				"env": {
+					"FLASK_APP": "app.py",
+					"FLASK_ENV": "development",
+					"FLASK_DEBUG": "1"
+				},
+				"args": [
+					"run",
+					// "--no-debugger", 
+					// "--no-reload"
+				],
+				"jinja": true,
+				"python": "${workspaceRoot:CNS-Flask}/.venv/bin/python"
+			},
+			{
+				"name": "Python: RevertAccount",
+				"type": "debugpy",
+				"request": "launch",
+				"program": "${workspaceRoot:CNS-Flask}/tools/revert_account.py",
+				"console": "integratedTerminal",
+				"justMyCode": false
+			},
+			{
+				"name": "Python Debugger: Current File",
+				"type": "debugpy",
+				"request": "launch",
+				"program": "${file}",
+				"console": "integratedTerminal",
+				"justMyCode": false
+			}
+		]
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "activate_venv",
+				"type": "shell",
+				"command": "source ${workspaceRoot:CNS-Flask}/.venv/bin/activate"
+			}
+		]
+	}
+}

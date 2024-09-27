@@ -78,6 +78,50 @@
                     "XDEBUG_MODE": "develop,debug,coverage",
                     "XDEBUG_CONFIG": "client_port=${port}" //"idekey=VSCODE"
                 }
+            },
+            {
+                "name": "Launch currently open script",
+                "type": "php",
+                "request": "launch",
+                "program": "${file}",
+                "cwd": "${fileDirname}",
+                "port": 0,
+                "runtimeArgs": [
+                    "-dxdebug.start_with_request=yes"
+                ],
+                "env": {
+                    "XDEBUG_MODE": "debug,develop",
+                    "XDEBUG_CONFIG": "client_port=${port}"
+                }
+            },
+            {
+                "name": "Launch Built-in web server",
+                "type": "php",
+                "request": "launch",
+                "runtimeArgs": [
+                    "-dxdebug.mode=debug",
+                    "-dxdebug.start_with_request=yes",
+                    "-S",
+                    "localhost:8001"
+                ],
+                "program": "",
+                "cwd": "${workspaceFolder}",
+                "port": 9003,
+                "hostname": "localhost",
+                "pathMappings": {
+                    "localRoot": "${workspaceRoot}",
+                    "remoteRoot": "${workspaceRoot}"
+                },
+                "log": true,
+                "serverReadyAction": {
+                    "pattern": "Development Server \\(http://localhost:(\\d+)\\) started",
+                    "uriFormat": "http://localhost:%s",
+                    "action": "openExternally"
+                },
+                "env": {
+                    "XDEBUG_MODE": "develop,debug,coverage",
+                    "XDEBUG_CONFIG": "client_port=${port}" //"idekey=VSCODE"
+                }
             }
         ]
     }

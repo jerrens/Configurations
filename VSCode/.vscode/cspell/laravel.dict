@@ -1,8 +1,15 @@
 autoload
 autoloader
+Barryvdh
 dont
+dxdebug
+endenv
 fakerphp
+intelephense
 laravel
 livewire
 nunomaduro
 pestphp
+vite
+wireui
+xdebug
