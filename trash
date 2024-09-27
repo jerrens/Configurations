@@ -1,0 +1,88 @@
+#!/bin/bash
+
+# trash
+# USAGE:
+#
+#   Move the file(s) given as argument(s) to the trash directory, if they are
+#   not already there.
+#
+
+
+if [ -z "$XDG_DATA_HOME" ] ; then
+    xdg_trash_directory=$(realpath ~/.local/share/Trash/)
+else
+    xdg_trash_directory=$(realpath $XDG_DATA_HOME/Trash/)
+fi
+
+gio_command_exists=0
+if $(command -v gio > /dev/null 2>&1) ; then
+    gio_command_exists=1
+fi
+
+host_implements_trash_specification=0
+if [[ -d "${xdg_trash_directory}" ]] && (( gio_command_exists == 1 )) ; then
+    # Executing on a host that implements the trash specification.
+    host_implements_trash_specification=1
+    trash_directory="${xdg_trash_directory}"
+else
+    # Executing on other host, so attempt to use a custom trash directory.
+    trash_directory=$(realpath ~/.recycle-bin)
+    if [[ -e "${trash_directory}" ]] ; then
+        # It exists.
+        if [[ ! -d "${trash_directory}" ]] ; then
+            # But is not a directory, so abort.
+            echo "Error: ${trash_directory} exists, but is not a directory."
+            exit 1
+        fi
+    else
+        # It does not exists, so create it.
+        mkdir "${trash_directory}"
+        echo "Created directory ${trash_directory}"
+    fi
+fi
+
+# Deal with all filenames (a concept that covers names of both files and
+# directories) given as arguments.
+for file in "$@" ; do
+    file_to_be_trashed=$(realpath -- "${file}")
+    file_basename=$(basename -- "${file_to_be_trashed}")
+    if [[ ! -e ${file_to_be_trashed} ]] ; then
+        echo "does not exist:   ${file_to_be_trashed}"
+    elif [[ "${file_to_be_trashed}" == "${trash_directory}"* ]] ; then
+        echo "already in trash: ${file_to_be_trashed}"
+    else
+        # ${file_to_be_trashed} exists and is not yet in the trash directory,
+        # so move it there.
+        if (( host_implements_trash_specification == 1 )) ; then
+            gio trash "${file_to_be_trashed}"
+        else
+            # IDEA: Modify this to create two files in the trashcan:
+            #  - One for the file/direct that was moved
+            #  - Second to be a text file that is the origin location
+            #  This can be leveraged to provide a `restore` command that puts the file back in the original location
+
+            # FIXME: Make the timestamp be the same for all files and not unqiue for each that was deleted
+            #  This way, one origin file can be created for the whole command
+
+            # IDEA: Origin file can contain the: timestamp, command, PWD, file(s) effected
+
+            # Move the file to the custom trash directory, with a new name that
+            # appends a millisecond-resolution timestamp to the original.
+            head="${trash_directory}/${file_basename}"_TRASHED_ON_
+
+            # TODO: Change the timestamp to be more compact: '+%Y%m%d-%H%M%S.%3N'
+            move_file_to="${head}$(date '+%Y-%m-%d_AT_%H-%M-%S.%3N')"
+            while [[ -e "${move_file_to}" ]] ; do
+                # Generate a new name with a new timestamp, as the previously
+                # generated one denoted an existing file or directory. It's very
+                # unlikely that this loop needs to be executed even once.
+                move_file_to="${head}$(date '+%Y-%m-%d_AT_%H-%M-%S.%3N')"
+            done
+
+            # There is no file or directory named ${move_file_to}, so
+            # we can use it as the move target.
+            /bin/mv "${file_to_be_trashed}" "${move_file_to}"
+        fi
+        echo "moved to trash:   ${file_to_be_trashed}"
+    fi
+done
