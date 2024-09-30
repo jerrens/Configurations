@@ -10,7 +10,12 @@
 # Test with the command
 #  touch test.txt && trash test.txt && ll ~/.recycle-bin/
 
-# IDEA: Support arguments to list contents of the recycle bin
+# IDEA: Support arguments to 
+#  - List contents of the recycle bin (with filters)
+#  - Purge files in the recycle bin (change time was updated to the time the file was deleted)
+#    Use this time to remove any files older than a specified number of days (default to 7)
+#    Test cmd: ls -1tc (list files, sorted by change time, newest at top)
+#    age=6; find . -type f -ctime "+${age}" # More than 6 days ago
 
 if [ -z "$XDG_DATA_HOME" ] ; then
     xdg_trash_directory=$(realpath ~/.local/share/Trash/)
@@ -44,6 +49,31 @@ else
         echo "Created directory ${trash_directory}"
     fi
 fi
+
+
+
+
+# Function to retrieve a list of files with ctime older than specified days
+#  days - Age of files in days.  If not provided, will list all files in the trash directory
+list_old_files() {
+    local directory=${trash_directory}
+    local days=$1
+    find "$directory" -maxdepth 1 -type f -ctime +"$((days - 1))" | awk -F '___TRASHED_ON__' '{
+        printf "%-40s %s\n", $2, $1
+    }'
+}
+
+# Function to delete files with ctime older than specified days
+#  days - Age of files in days.  If not provided, will delete all files in the trash directory
+delete_old_files() {
+    local directory=${trash_directory}
+    local days=$2
+    find "$directory" -type f -ctime +"$((days - 1))" -exec rm -f {} +
+}
+
+# HACK: Test Code 
+# list_old_files 2
+# exit
 
 cmd_time="$(date '+%Y%m%d-%H%M%S.%3N')"
 
