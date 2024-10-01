@@ -36,6 +36,7 @@ USAGE:
                 Default age is ${DEFAULT_AGE} days
         purge   Purge files older than the specified number of days from the trash. Default
                 age is ${DEFAULT_AGE} days
+        dir     Return the path to the trash directory
         help    Show usage
         <path>  One or more paths to files and/or directories that should be moved to 
                 the trash.  Patterns supported by 'mv' are supported    
@@ -246,9 +247,15 @@ function main() {
         list|ls)
             list_old_files "$2"
             ;;
+
         purge|rm)
             delete_old_files "$2"
             ;;
+
+        dir|directory|path)
+            echo "${trash_directory}"
+            ;;
+
         help)
             print_usage true
             exit 0
@@ -274,4 +281,5 @@ exit 0
  - 24.9.27:     Initial Creation
  - 24.9.30:     Added methods to list and delete files from the trash directory (not accessible via args yet)
  - 24.10.1:     Added 'list', 'purge', and 'help' commands
+                Added 'dir' command
 EOT
