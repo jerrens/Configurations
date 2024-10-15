@@ -1,4 +1,4 @@
-// Laravel Profile Settings
+// Laravel (Extra) Profile Settings
 // spell-checker:ignore hediet
 {
     "auto-rename-tag.activationOnLanguage": [
@@ -116,8 +116,9 @@
     **************************************/
     "todo-tree.general.debug": false,
     "todo-tree.regex.enableMultiLine": false,
-    "todo-tree.regex.regex": "(?://|#|<!--|;[^\\r\\n]{1,2}|/\\*|\\*)+\\s*(?:-|\\d+.)*\\s*($TAGS)\\b:?(.*[\\r\\n]{1,2}\\s*(?://|/\\*|\\*)\\s{2,}.*)*(?:\\s*(?:\\*/))?",
-    "todo-tree.regex.subTagRegex": "^\\.?(\\.?(\\w+))?:\\s+",
+    // "todo-tree.regex.regex": "(?://|#|<!--|;[^\\r\\n]{1,2}|/\\*|\\*)+\\s*(?:-|\\d+.)*\\s*($TAGS)\\b:?(.*[\\r\\n]{1,2}\\s*(?:#|//|/\\*|\\*)\\s{2,}.*)*",
+    // "todo-tree.regex.regex": "(?://|#|<!--|;[^\\r\\n]{1,2}|/\\*|\\*|\\{\\{--)+\\s*(?:-|\\d+.)*\\s*($TAGS)\\b:?(.*[\\r\\n]{1,2}\\s*(?://|/\\*|\\*|[#-])\\s{2,}.*)*(?:\\s*(?:\\*/))?",
+    "todo-tree.regex.regex": "(?://|#|<!--|;[^\\r\\n]{1,2}|/\\*|\\*)+\\s*(?:-|\\d+.)*\\s*($TAGS)\\b:?(.*[\\r\\n]{1,2}\\s*(?:#|//|/\\*|\\*)\\s{2,}.*)*(?:\\s*(?:\\*/))?","todo-tree.regex.subTagRegex": "^\\.?(\\.?(\\w+))?:\\s+",
     "todo-tree.regex.regexCaseSensitive": false,
     "todo-tree.highlights.enabled": true, // Enable so that we get the icon and other features
     "todo-tree.tree.showCountsInTree": true, // Show how many comments are present in the group or file
@@ -256,6 +257,9 @@
     // ************************************************************    
     // Customizations depending on the 'Language' of the file
     // spell-checker:ignore esbenp
+    "[blade]": {
+        "editor.defaultFormatter": "shufo.vscode-blade-formatter" // spell-checker:disable-line
+    },
     "[css]": {
         "editor.defaultFormatter": "vscode.css-language-features"
     },
@@ -275,9 +279,12 @@
     "[markdown]": {
         "editor.defaultFormatter": "DavidAnson.vscode-markdownlint" // spell-checker:disable-line
     },
-    "[blade]": {
-        "editor.defaultFormatter": "shufo.vscode-blade-formatter" // spell-checker:disable-line
-    }
+    "[python]": {
+        "editor.formatOnSave": false,
+        "editor.formatOnType": true,
+        // "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "git.confirmSync": false
     // End: Customizations depending on the 'Language' of the file
     // ************************************************************
 }

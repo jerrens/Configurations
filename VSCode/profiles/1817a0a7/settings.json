@@ -154,7 +154,8 @@
     },
     "[python]": {
         "editor.formatOnType": true
-    }
+    },
+    "debug.toolBarLocation": "commandCenter"
     // End: Customizations depending on the 'Language' of the file
     // ************************************************************
 }

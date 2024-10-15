@@ -116,7 +116,9 @@
     **************************************/
     "todo-tree.general.debug": false,
     "todo-tree.regex.enableMultiLine": false,
-    "todo-tree.regex.regex": "(?://|#|<!--|;[^\\r\\n]{1,2}|/\\*|\\*)+\\s*(?:-|\\d+.)*\\s*($TAGS)\\b:?(.*[\\r\\n]{1,2}\\s*(?://|/\\*|\\*)\\s{2,}.*)*(?:\\s*(?:\\*/))?",
+    // "todo-tree.regex.regex": "(?://|#|<!--|;[^\\r\\n]{1,2}|/\\*|\\*|\\{\\{--)+\\s*(?:-|\\d+.)*\\s*($TAGS)\\b:?(.*[\\r\\n]{1,2}\\s*(?://|/\\*|\\*|[#-])\\s{2,}.*)*(?:\\s*(?:\\*/))?",
+    // "todo-tree.regex.regex": "(?://|#|<!--|;[^\\r\\n]{1,2}|/\\*|\\*)+\\s*(?:-|\\d+.)*\\s*($TAGS)\\b:?(.*[\\r\\n]{1,2}\\s*(?:#|//|/\\*|\\*)\\s{2,}.*)*",
+    "todo-tree.regex.regex": "(?://|#|<!--|;[^\\r\\n]{1,2}|/\\*|\\*)+\\s*(?:-|\\d+.)*\\s*($TAGS)\\b:?(.*[\\r\\n]{1,2}\\s*(?:#|//|/\\*|\\*)\\s{2,}.*)*(?:\\s*(?:\\*/))?",
     "todo-tree.regex.subTagRegex": "^\\.?(\\.?(\\w+))?:\\s+",
     "todo-tree.regex.regexCaseSensitive": false,
     "todo-tree.highlights.enabled": true, // Enable so that we get the icon and other features
@@ -277,7 +279,16 @@
     },
     "[blade]": {
         "editor.defaultFormatter": "shufo.vscode-blade-formatter" // spell-checker:disable-line
-    }
+    },
+    "gitlens.launchpad.indicator.enabled": false,
+    "codeium.enableConfig": {
+        "*": false
+    },
+    "cSpell.enableFiletypes": [
+        "php",
+        "blade"
+    ],
+    "git.confirmSync": false
     // End: Customizations depending on the 'Language' of the file
     // ************************************************************
 }

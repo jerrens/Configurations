@@ -19,8 +19,7 @@
         "teh"
         // spell-checker:enable
     ],
-    "cSpell.ignoreRegExpList": [
-    ],
+    "cSpell.ignoreRegExpList": [],
     "cSpell.words": [
         "drawio",
         "jerren"
@@ -74,7 +73,7 @@
         "switch:command",
         "branch-create:command"
     ],
-    "gitlens.hovers.currentLine.over": "line",    
+    "gitlens.hovers.currentLine.over": "line",
     "hediet.vscode-drawio.resizeImages": null,
     "hediet.vscode-drawio.theme": "Kennedy",
     //
@@ -107,7 +106,8 @@
     **************************************/
     "todo-tree.general.debug": false,
     "todo-tree.regex.enableMultiLine": false,
-    "todo-tree.regex.regex": "(?://|#|<!--|;[^\\r\\n]{1,2}|/\\*|\\*)+\\s*(?:-|\\d+.)*\\s*($TAGS)\\b:?(.*[\\r\\n]{1,2}\\s*(?://|/\\*|\\*)\\s{2,}.*)*(?:\\s*(?:\\*/))?",
+    // "todo-tree.regex.regex": "(?://|#|<!--|;[^\\r\\n]{1,2}|/\\*|\\*)+\\s*(?:-|\\d+.)*\\s*($TAGS)\\b:?(.*[\\r\\n]{1,2}\\s*(?:#|//|/\\*|\\*)\\s{2,}.*)*",
+    "todo-tree.regex.regex": "(?://|#|<!--|;[^\\r\\n]{1,2}|/\\*|\\*)+\\s*(?:-|\\d+.)*\\s*($TAGS)\\b:?(.*[\\r\\n]{1,2}\\s*(?:#|//|/\\*|\\*)\\s{2,}.*)*(?:\\s*(?:\\*/))?",
     "todo-tree.regex.subTagRegex": "^\\.?(\\.?(\\w+))?:\\s+",
     "todo-tree.regex.regexCaseSensitive": false,
     "todo-tree.highlights.enabled": true, // Enable so that we get the icon and other features

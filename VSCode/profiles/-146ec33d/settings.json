@@ -1,0 +1,19 @@
+// TestLaravel Settings
+{
+    "workbench.sideBar.location": "right",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "files.autoSave": "afterDelay",
+    "editor.formatOnSave": true,
+    "auto-rename-tag.activationOnLanguage": [
+        "*"
+    ],
+    "files.associations": {
+        ".env*": "dotenv"
+    },
+    "editor.tokenColorCustomizations": {
+        "textMateRules": []
+    },
+    "dotenv.cloakIcon": "█",
+    "dotenv.cloakColor": "#cccccc",
+    "dotenv.enableAutocloaking": false
+}

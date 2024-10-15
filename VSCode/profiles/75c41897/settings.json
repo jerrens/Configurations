@@ -1,14 +1,15 @@
-// CSharp Profile Settings
+// ShellScript Settings
+// spell-checker:ignore hediet
 {
     // ************************************************************
     // CodeSnap Extension Configuration
     //  Used for screenshots and may not be installed
     // ------------------------------------------------------------
     "codesnap.showWindowControls": false,
-    "codesnap.transparentBackground": true,
-    "codesnap.showLineNumbers": false,
     "codesnap.containerPadding": "0em",
+    "codesnap.showLineNumbers": false,
     "codesnap.showWindowTitle": true,
+    "codesnap.transparentBackground": true,
     // 
     // ************************************************************
     // Spell Checker Extension Configuration
@@ -19,7 +20,13 @@
         "teh"
         // spell-checker:enable
     ],
-    "cSpell.ignoreRegExpList": [],
+    "cSpell.ignoreRegExpList": [
+        // spell-checker:disable
+        "\/[gmiyuvsd]{4,7}\\b", // ECMAScript: Ignore common regex flag chars, with no repeats (don't need to worry about less than 3 because those are not considered words by cSpell)
+        "\/[gmixsuUAJD]{4,7}\\b", // PCRE2: Ignore common regex flag chars, with no repeats (don't need to worry about less than 3 because those are not considered words by cSpell)
+        "case ['`\"]([A-Z]+|[a-z]+)['`\"]:" // Ignore case keywords in a switch statement if they are all upper or lower case
+        // spell-checker:enable
+    ],
     "cSpell.words": [
         "drawio",
         "jerren"
@@ -33,20 +40,32 @@
     "debug.showBreakpointsInOverviewRuler": true,
     "debug.toolBarLocation": "commandCenter",
     "diffEditor.ignoreTrimWhitespace": false,
+    "dotenv.cloakIcon": "█",
+    "dotenv.cloakColor": "#cccccc",
+    "dotenv.enableAutocloaking": false,
     // "editor.bracketPairColorization.enabled": true, // Colors can be customized with 'workbench.colorCustomizations'
-    "editor.fontSize": 12,
-    "editor.guides.bracketPairs": true,
-    "editor.renderControlCharacters": false,
-    "editor.renderWhitespace": "trailing",
+    "editor.cursorBlinking": "phase",
     // Format on Save
     // Applies code formatters when saving to provide consistent indents, remove trailing white-space, etc.
     "editor.formatOnSave": true, // Default: This will allow the formatter(s) to fix most issues on save so that you don't have to manually (CTRL+S)
     // To by-pass the formatting of a file when you save it, press F1 or CTRL+SHIFT+P and select 'File: Save without Formatting' or just press (CTRL+K, CTRL+SHIFT+S)
     "editor.formatOnSaveMode": "file",
-    // "editor.stickyScroll.enabled": true,
+    "editor.guides.bracketPairs": true,
+    "editor.minimap.showSlider": "always",
+    "editor.mouseWheelZoom": true,
+    // "editor.quickSuggestions": {
+    //     "other": "on",
+    //     "comments": "on",
+    //     "strings": "on"
+    // },
+    "editor.renderControlCharacters": false,
+    "editor.renderWhitespace": "trailing",
+    "editor.tokenColorCustomizations": {
+        "textMateRules": []
+    },
     "explorer.confirmDelete": false,
     "files.associations": {
-        ".env*": "dotenv",
+        ".env*": "dotenv", // Detect `.env-prod`, etc. files
         "*.json": "jsonc", // Allow JSON files to have comments by default (otherwise it causes a warning)
         "*.schema": "jsonc"
     },
@@ -222,6 +241,10 @@
         // }
     },
     // END REGION: Extension Settings: ToDo-Tree
+    "workbench.colorCustomizations": {
+        "terminal.foreground": "#00FF00",
+        "terminal.background": "#0c0c0c"
+    },
     // "window.commandCenter": true,
     "workbench.editor.doubleClickTabToToggleEditorGroupSizes": "maximize",
     "workbench.editor.highlightModifiedTabs": true, // Highlight active tab
@@ -229,7 +252,6 @@
     "workbench.editorAssociations": {
         "*.html": "default"
     },
-    "workbench.externalBrowser": "chrome",
     "workbench.iconTheme": "material-icon-theme",
     "workbench.sideBar.location": "right",
     "workbench.startupEditor": "none",
@@ -240,40 +262,6 @@
     // spell-checker:ignore esbenp
     "[css]": {
         "editor.defaultFormatter": "vscode.css-language-features"
-    },
-    "[dart]": {
-        // Automatically format code on save and during typing of certain characters
-        // (like `;` and `}`).
-        "editor.formatOnSave": true,
-        "editor.formatOnType": true,
-        // Draw a guide line at 80 characters, where Dart's formatting will wrap code.
-        "editor.rulers": [
-            80
-        ],
-        // Disables built-in highlighting of words that match your selection. Without
-        // this, all instances of the selected text will be highlighted, interfering
-        // with Dart's ability to highlight only exact references to the selected variable.
-        "editor.selectionHighlight": false,
-        // By default, VS Code prevents code completion from popping open when in
-        // "snippet mode" (editing placeholders in inserted code). Setting this option
-        // to `false` stops that and allows completion to open as normal, as if you
-        // weren't in a snippet placeholder.
-        "editor.suggest.snippetsPreventQuickSuggestions": false,
-        // By default, VS Code will pre-select the most recently used item from code
-        // completion. This is usually not the most relevant item.
-        //
-        // "first" will always select top item
-        // "recentlyUsedByPrefix" will filter the recently used items based on the
-        //     text immediately preceding where completion was invoked.
-        "editor.suggestSelection": "first",
-        // Allows pressing <TAB> to complete snippets such as `for` even when the
-        // completion list is not visible.
-        "editor.tabCompletion": "onlySnippets",
-        // By default, VS Code will populate code completion with words found in the
-        // current file when a language service does not provide its own completions.
-        // This results in code completion suggesting words when editing comments and
-        // strings. This setting will prevent that.
-        "editor.wordBasedSuggestions": "off"
     },
     "[html]": {
         // "editor.defaultFormatter": "vscode.html-language-features"
@@ -293,7 +281,21 @@
     },
     "[python]": {
         "editor.formatOnType": true
-    }
+    },
     // End: Customizations depending on the 'Language' of the file
     // ************************************************************
+    //
+    //
+    //
+    // ************************************************************
+    // Local Configurations
+    // ------------------------------------------------------------
+    "remote.SSH.remotePlatform": {
+        "JerryJumpBox": "linux",
+        "CNSLab": "linux"
+    },
+    "settingsSync.ignoredExtensions": [
+        "codeium.codeium"
+    ],
+    "redhat.telemetry.enabled": false,
 }

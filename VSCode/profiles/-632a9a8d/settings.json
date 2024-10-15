@@ -1,4 +1,4 @@
-// VS Code Default Settings
+// Python Settings
 // spell-checker:ignore hediet
 {
     "auto-rename-tag.activationOnLanguage": [
@@ -62,7 +62,7 @@
     //     "strings": "on"
     // },
     "editor.renderControlCharacters": false,
-    "editor.renderWhitespace": "all",
+    "editor.renderWhitespace": "trailing",
     "editor.tokenColorCustomizations": {
         "textMateRules": []
     },
@@ -124,7 +124,8 @@
     **************************************/
     "todo-tree.general.debug": false,
     "todo-tree.regex.enableMultiLine": false,
-    "todo-tree.regex.regex": "(?://|#|<!--|;[^\\r\\n]{1,2}|/\\*|\\*)+\\s*(?:-|\\d+.)*\\s*($TAGS)\\b:?(.*[\\r\\n]{1,2}\\s*(?://|/\\*|\\*)\\s{2,}.*)*",
+    // "todo-tree.regex.regex": "(?://|#|<!--|;[^\\r\\n]{1,2}|/\\*|\\*)+\\s*(?:-|\\d+.)*\\s*($TAGS)\\b:?(.*[\\r\\n]{1,2}\\s*(?:#|//|/\\*|\\*)\\s{2,}.*)*",
+    "todo-tree.regex.regex": "(?://|#|<!--|;[^\\r\\n]{1,2}|/\\*|\\*)+\\s*(?:-|\\d+.)*\\s*($TAGS)\\b:?(.*[\\r\\n]{1,2}\\s*(?:#|//|/\\*|\\*)\\s{2,}.*)*(?:\\s*(?:\\*/))?",
     "todo-tree.regex.subTagRegex": "^\\.?(\\.?(\\w+))?:\\s+",
     "todo-tree.regex.regexCaseSensitive": false,
     "todo-tree.highlights.enabled": true, // Enable so that we get the icon and other features
@@ -254,7 +255,7 @@
     "workbench.editorAssociations": {
         "*.html": "default"
     },
-    "workbench.iconTheme": "vscode-icons",
+    "workbench.iconTheme": "material-icon-theme",
     "workbench.sideBar.location": "right",
     "workbench.startupEditor": "none",
     "workbench.tree.indent": 16,
@@ -316,7 +317,9 @@
         "editor.defaultFormatter": "DavidAnson.vscode-markdownlint" // spell-checker:disable-line
     },
     "[python]": {
-        "editor.formatOnType": true
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.defaultFormatter": "ms-python.black-formatter"
     },
     // End: Customizations depending on the 'Language' of the file
     // ************************************************************
@@ -331,4 +334,10 @@
         "CNSLab": "linux"
     },
     "telemetry.telemetryLevel": "off",
+    "gitlens.graph.minimap.dataType": "lines",
+    "gitlens.graph.minimap.enabled": false,
+    "black-formatter.args": [
+        "--line-length",
+        "110"
+    ],
 }
